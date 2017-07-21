@@ -3,6 +3,9 @@
     [
       [lein-ancient "0.6.10"]
       [venantius/ultra "0.5.0"]
+      [jonase/eastwood "0.2.4"]
+      [lein-kibit "0.1.5"]
+      [lein-pprint "1.1.2"]
       [lein-midje "3.2.1"]
       [com.jakemccrary/lein-test-refresh "0.19.0"]]
   :dependencies
