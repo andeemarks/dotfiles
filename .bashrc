@@ -93,3 +93,6 @@ source ~/.bash-powerline.sh
 
 archey
 
+
+# added by travis gem
+[ -f /home/amarks/.travis/travis.sh ] && source /home/amarks/.travis/travis.sh
