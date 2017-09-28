@@ -15,5 +15,6 @@ ln -sfv "$DOTFILES_DIR/.bash_aliases" ~
 ln -sfv "$DOTFILES_DIR/.gitconfig" ~
 ln -sfv "$DOTFILES_DIR/.taskrc" ~
 ln -sfv "$DOTFILES_DIR/.vimrc" ~
+mkdir --parents ~/.lein
 ln -sfv "$DOTFILES_DIR/profiles.clj" ~/.lein/
 
