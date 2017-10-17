@@ -6,6 +6,7 @@
       [jonase/eastwood "0.2.4"]
       [lein-kibit "0.1.5"]
       [lein-pprint "1.1.2"]
+      [lein-release "1.0.9"]
       [com.chartbeat.cljbeat/lein-assemble "0.1.4"]
       [lein-midje "3.2.1"]
       [com.jakemccrary/lein-test-refresh "0.19.0"]]
