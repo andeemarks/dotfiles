@@ -18,3 +18,8 @@ ln -sfv "$DOTFILES_DIR/.vimrc" ~
 mkdir --parents ~/.lein
 ln -sfv "$DOTFILES_DIR/profiles.clj" ~/.lein/
 
+mkdir --parents ~/.vim/colors/
+ln -sfv "$DOTFILES_DIR/mustang.vim" ~/.vim/colors/
+mkdir --parents ~/.vim/autoload/
+ln -sfv "$DOTFILES_DIR/pathogen.vim" ~/.vim/autoload/
+mkdir --parents ~/.vim/bundle/
