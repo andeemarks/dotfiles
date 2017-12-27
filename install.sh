@@ -23,3 +23,7 @@ ln -sfv "$DOTFILES_DIR/mustang.vim" ~/.vim/colors/
 mkdir --parents ~/.vim/autoload/
 ln -sfv "$DOTFILES_DIR/pathogen.vim" ~/.vim/autoload/
 mkdir --parents ~/.vim/bundle/
+
+mkdir --parents ~/.config/i3
+ln -sfv "$DOTFILES_DIR/config.i3" ~/.config/i3/config
+
