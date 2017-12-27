@@ -27,3 +27,5 @@ mkdir --parents ~/.vim/bundle/
 mkdir --parents ~/.config/i3
 ln -sfv "$DOTFILES_DIR/config.i3" ~/.config/i3/config
 
+mkdir --parents ~/.config/i3status
+ln -sfv "$DOTFILES_DIR/config.i3status" ~/.config/i3status/config
