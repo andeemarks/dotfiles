@@ -15,6 +15,7 @@ alias git=hub
 alias gitpp="git pull --rebase && git push"
 alias gitst="git status -sb"
 alias gitlg="git log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
+alias cat=bat
 
 
 
