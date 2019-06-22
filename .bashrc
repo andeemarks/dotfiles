@@ -18,6 +18,15 @@ shopt -s histappend
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
 HISTSIZE=1000
 HISTFILESIZE=2000
+HISTCONTROL=ignoreboth
+HISTIGNORE='ll:ls:bg:fg:history'
+HISTTIMEFORMAT='%F %T '
+
+# Update history on each command
+PROMPT_COMMAND='history -a'
+
+# force commands that you entered on more than one line to be adjusted to fit on only one
+shopt -s cmdhist
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
@@ -95,3 +104,6 @@ export NVM_DIR="$HOME/.nvm"
 # tabtab source for sls package
 # uninstall by removing these lines or running `tabtab uninstall sls`
 [ -f /home/amarks/.nvm/versions/node/v6.10.3/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.bash ] && . /home/amarks/.nvm/versions/node/v6.10.3/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.bash
+
+export GIT_EDITOR=vim
+
