@@ -15,6 +15,9 @@ alias git=hub
 alias gitpp="git pull --rebase && git push"
 alias gitst="git status -sb"
 alias gitlg="git log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
+alias gitpr="git pull --rebase"
+alias gitcl="git clean -fdX"
+alias gitlgl="git log --stat --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --graph --abbrev-commit"
 alias cat=bat
 alias sagi="sudo apt-get install -y"
 alias sagu="sudo apt-get update"

@@ -88,9 +88,6 @@ function lll ()
 
 source ~/.bash-powerline.sh
 
-archey
-
-
 # added by travis gem
 [ -f /home/amarks/.travis/travis.sh ] && source /home/amarks/.travis/travis.sh
 
@@ -107,3 +104,6 @@ export NVM_DIR="$HOME/.nvm"
 
 export GIT_EDITOR=vim
 
+neofetch
+
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
