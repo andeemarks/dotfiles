@@ -3,7 +3,7 @@
     [
       [lein-ancient "0.6.15"]
       [org.clojure/core.rrb-vector "0.0.13"]
-      [venantius/ultra "0.5.0"]
+      [venantius/ultra "0.6.0"]
       [jonase/eastwood "0.3.5"]
       [lein-kibit "0.1.5"]
       [lein-pprint "1.1.2"]
