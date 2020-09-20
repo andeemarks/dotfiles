@@ -101,6 +101,8 @@ neofetch
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 export PATH=$PATH:~/.cargo/bin
+export PATH=$PATH:/usr/local/blender-2.82a-linux64
+export PATH=$PATH:/snap/bin
 
 synclient HorizTwoFingerScroll=0
 
@@ -108,3 +110,12 @@ synclient HorizTwoFingerScroll=0
 # tabtab source for slss package
 # uninstall by removing these lines or running `tabtab uninstall slss`
 [ -f /home/amarks/.nvm/versions/node/v10.15.3/lib/node_modules/serverless/node_modules/tabtab/.completions/slss.bash ] && . /home/amarks/.nvm/versions/node/v10.15.3/lib/node_modules/serverless/node_modules/tabtab/.completions/slss.bash
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+function set_win_title(){
+    echo -ne "\033]0; $(basename $PWD) \007"
+}
+starship_precmd_user_func="set_win_title"
+
+eval "$(starship init bash)"

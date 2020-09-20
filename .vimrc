@@ -1,7 +1,20 @@
 "http://nvie.com/posts/how-i-boosted-my-vim/
 set nocompatible
+filetype off
 
-colorscheme mustang
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
+
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'itchyny/lightline.vim'
+
+call vundle#end()            " required
+filetype plugin indent on    " required
+
+colorscheme murphy
 
 execute pathogen#helptags()
 execute pathogen#infect()
@@ -9,6 +22,14 @@ execute pathogen#infect()
 let mapleader=","
 nmap <silent> <leader>ev :e $MYVIMRC<CR>
 nmap <silent> <leader>sv :v $MYVIMRC<CR>
+
+set statusline=
+set statusline+=%<\                       " cut at start
+set statusline+=%2*[%n%H%M%R%W]%*\        " flags and buf no
+set statusline+=%-40f\                    " path
+set statusline+=%=%1*%y%*%*\              " file type
+set statusline+=%10((%l,%c)%)\            " line and column
+set statusline+=%P
 
 set hidden
 set nowrap
@@ -25,6 +46,7 @@ set smartcase
 set smarttab
 set hlsearch
 set incsearch
+set cursorline
 
 set history=1000
 set undolevels=1000
@@ -36,10 +58,6 @@ set nobackup
 "set noswapfile
 
 filetype plugin indent on
-
-if &t_Co >= 256 || has("gui_running")
-    colorscheme mustang
-endif
 
 if &t_Co > 2 || has("gui_running")
     " switch syntax highlighting on, when the terminal has colors
