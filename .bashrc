@@ -97,15 +97,13 @@ export NVM_DIR="$HOME/.nvm"
 
 export GIT_EDITOR=vim
 
-neofetch
+neofetch --config ~/.config/neofetch/neofetch.config
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 export PATH=$PATH:~/.cargo/bin
 export PATH=$PATH:/usr/local/blender-2.82a-linux64
 export PATH=$PATH:/snap/bin
-
-synclient HorizTwoFingerScroll=0
-
+export PATH=$PATH:/home/linuxbrew/.linuxbrew/Cellar/jrnl/2.8.3_2/bin
 
 # tabtab source for slss package
 # uninstall by removing these lines or running `tabtab uninstall slss`
@@ -116,6 +114,19 @@ synclient HorizTwoFingerScroll=0
 function set_win_title(){
     echo -ne "\033]0; $(basename $PWD) \007"
 }
-starship_precmd_user_func="set_win_title"
 
-eval "$(starship init bash)"
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/home/amarks/miniconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/home/amarks/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/amarks/miniconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/home/amarks/miniconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+

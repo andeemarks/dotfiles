@@ -11,7 +11,7 @@ set $ws1 "1:Dev"
 set $ws2 "2:Web"
 set $ws3 "3:Zoom"
 set $ws4 "4:Terminal"
-assign [class="Firefox"] $ws2
+assign [class="Chromium"] $ws2
 assign [class="Zoom"] $ws3
 assign [class="Terminator"] $ws4
 assign [class="code"] $ws1
@@ -99,6 +99,9 @@ bindsym $mod+Shift+2 move container to workspace $ws2
 bindsym $mod+Shift+3 move container to workspace $ws3
 bindsym $mod+Shift+4 move container to workspace $ws4
 bindsym $mod+Shift+5 move container to workspace 5
+
+# Moving workspaces between screens
+bindsym $mod+p move workspace to output right
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -195,7 +198,8 @@ exec terminator
 exec firefox
 exec code
 exec zoom
-exec --no-startup-id feh --bg-scale ~/Pictures/TWU\ Desktop\ background\(2\).png 
+exec xcompmgr -c -l0 -t0 -r0 -o.00
+exec xsetroot -solid "#000000"
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
 # Media player controls
@@ -205,10 +209,12 @@ bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
 bindsym XF86AudioRaiseVolume exec amixer -q -c 0 set Master 2Db+
-bindsym $mod+F3 exec amixer -q -c 0 set Master 2Db+
 bindsym XF86AudioLowerVolume exec amixer -q -c 0 set Master 2Db+
-bindsym $mod+F2 exec amixer -q -c 0 set Master 2Db-
 bindsym XF86AudioMute exec amixer -q -c 0 set Master toggle
+# bindsym $mod+F3 exec amixer -q -c 0 set Master 2Db+
+# bindsym $mod+F2 exec amixer -q -c 0 set Master 2Db-
+bindsym $mod+F3 exec amixer -q -c 3 set Headphone 2Db+
+bindsym $mod+F2 exec amixer -q -c 3 set Headphone 2Db-
 
 bindsym $mod+F6 exec rhythmbox-client --play-pause
 bindsym $mod+F5 exec rhythmbox-client --previous
