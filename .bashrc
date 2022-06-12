@@ -86,7 +86,7 @@ function lll ()
 	
 }
 
-source ~/.bash-powerline.sh
+source ~/.bash_powerline.sh
 
 # added by travis gem
 [ -f /home/amarks/.travis/travis.sh ] && source /home/amarks/.travis/travis.sh
