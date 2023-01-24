@@ -2,57 +2,48 @@ general {
         output_format = "i3bar"
         colors = true
         interval = 5
-        color_separator = "#FFFF00"
 }
 
 order += "disk /"
+order += "disk /home"
+order += "disk /var"
 order += "wireless _first_"
 order += "volume master"
 order += "tztime local"
-order += "tztime china"
-order += "tztime india"
-order += "tztime spain"
 
 wireless _first_ {
-        format_up = "%essid: (%quality, %bitrate ) %ip"
+        format_up = "%essid:%quality, %bitrate %ip"
         format_down = "W: down"
 }
 
 volume master {
         format = "♪: %volume"
         format_muted = "♪: muted (%volume)"
-        device = "default"
-        mixer = "Headphone"
-        mixer_idx = 0
+        device = "pulse:alsa_output.pci-0000_00_1f.3.analog-stereo"
 }
 
 tztime local {
         format = "%time"
-        format_time = "%H:%M %p %Z"
-}
-
-tztime china {
-        format = "%H:%M %p (CHN)"
-        timezone = "Asia/Shanghai"
-}
-
-tztime india {
-        format = "%H:%M %p (IND)"
-        timezone = "Asia/Calcutta"
-}
-
-tztime spain {
-        format = "%H:%M %p (ESP)"
-        timezone = "Europe/Madrid"
-}
-
-load {
-        format = "CPU Load: %5min"
+        format_time = "%b %d %H:%M %p %Z"
 }
 
 disk "/" {
 	color_good = "#FF0000"
-        format = "Disk %percentage_avail avail"
+        format = "/ %percentage_avail avail"
+        low_threshold = "10"
+        threshold_type = "percentage_free"
+}
+
+disk "/home" {
+	color_good = "#FF0000"
+        format = "/home %percentage_avail avail"
+        low_threshold = "10"
+        threshold_type = "percentage_free"
+}
+
+disk "/var" {
+	color_good = "#FF0000"
+        format = "/var %percentage_avail avail"
         low_threshold = "10"
         threshold_type = "percentage_free"
 }

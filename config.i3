@@ -7,14 +7,11 @@
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
 set $mod Mod4
-set $ws1 "1:Dev"
-set $ws2 "2:Web"
-set $ws3 "3:Zoom"
-set $ws4 "4:Terminal"
-assign [class="Chromium"] $ws2
-assign [class="Zoom"] $ws3
-assign [class="Terminator"] $ws4
-assign [class="code"] $ws1
+set $ws1 "1:Work"
+set $ws2 "2:Social"
+set $ws3 "3:Dev"
+set $ws4 "4:Music"
+set $ws5 "5:Terminal"
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
@@ -154,53 +151,57 @@ bindsym $mod+Pause mode "$mode_system"
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
-# bar {
-#         position top
-#         status_command i3status -c ~/.config/i3status/config-nontime.conf
-#         tray_output primary
-#         font pango:DejaVu Sans Mono 10
-#         separator_symbol ">"
-#         binding_mode_indicator yes
-#         colors {
-#                 background #222222
-#                 statusline #ffffff
-#                 separator #ffff00
-
-#                 focused_workspace  #4c7899 #285577 #ffffff
-#                 active_workspace   #333333 #5f676a #ffffff
-#                 inactive_workspace #333333 #222222 #888888
-#                 urgent_workspace   #2f343a #900000 #ffffff
-#                 binding_mode       #2f343a #900000 #ffffff
-#         }
-# }
-
 bar {
-        position bottom
-        status_command i3status -c ~/.config/i3status/config-time.conf
-        tray_output primary
-        font pango:DejaVu Sans Mono 10
+        position top
+        status_command i3status
+        font pango:DejaVu Sans Mono 14
         separator_symbol "|"
         binding_mode_indicator yes
         colors {
                 background #222222
                 statusline #ffffff
                 separator #ffff00
-
-                focused_workspace  #4c7899 #285577 #ffffff
-                active_workspace   #333333 #5f676a #ffffff
-                inactive_workspace #333333 #222222 #888888
-                urgent_workspace   #2f343a #900000 #ffffff
-                binding_mode       #2f343a #900000 #ffffff
         }
 }
 
+bar {
+        position bottom
+        status_command i3status -c ~/.config/i3status/config-time.conf | ~/.local/share/i3spotifystatus/pystatus.py
+        tray_output primary
+        font pango:DejaVu Sans Mono 14
+        separator_symbol "|"
+        binding_mode_indicator yes
+        colors {
+                background #222222
+                statusline #ffffff
+                separator #ffff00
+        }
+}
+
+# client.focused          #4c7899 #285577 #ffffff #2e9ef4   #285577
+default_border normal
+hide_edge_borders none
+# smart_borders on
+
 exec terminator
 exec firefox
+assign [class="Firefox"] $ws2
+assign [class="Chromium"] $ws2
 exec code
+assign [class="code"] $ws3
 exec zoom
+exec spotify
+assign [class="^Spotify*"] $ws4
 exec xcompmgr -c -l0 -t0 -r0 -o.00
 exec xsetroot -solid "#000000"
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+exec i3-layouts
+
+set $i3l 2columns to workspace $ws1
+set $i3l 2columns to workspace $ws2
+set $i3l 2columns to workspace $ws3
+set $i3l 2columns to workspace $ws4
+set $i3l 2columns to workspace $ws5
 
 # Media player controls
 bindsym XF86AudioPlay exec playerctl play
@@ -211,14 +212,14 @@ bindsym XF86AudioPrev exec playerctl previous
 bindsym XF86AudioRaiseVolume exec amixer -q -c 0 set Master 2Db+
 bindsym XF86AudioLowerVolume exec amixer -q -c 0 set Master 2Db+
 bindsym XF86AudioMute exec amixer -q -c 0 set Master toggle
-# bindsym $mod+F3 exec amixer -q -c 0 set Master 2Db+
-# bindsym $mod+F2 exec amixer -q -c 0 set Master 2Db-
-bindsym $mod+F3 exec amixer -q -c 3 set Headphone 2Db+
-bindsym $mod+F2 exec amixer -q -c 3 set Headphone 2Db-
+bindsym $mod+F3 exec amixer -q -c 0 set Master 2Db+
+bindsym $mod+F2 exec amixer -q -c 0 set Master 2Db-
 
-bindsym $mod+F6 exec rhythmbox-client --play-pause
-bindsym $mod+F5 exec rhythmbox-client --previous
-bindsym $mod+F7 exec rhythmbox-client --next
+# bindsym $mod+F3 exec amixer -q -c 3 set Headphone 2Db+
+# bindsym $mod+F2 exec amixer -q -c 3 set Headphone 2Db-
+# bindsym $mod+F6 exec rhythmbox-client --play-pause
+# bindsym $mod+F5 exec rhythmbox-client --previous
+# bindsym $mod+F7 exec rhythmbox-client --next
 
 bindsym $mod+Print exec flameshot gui
 
