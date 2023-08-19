@@ -12,6 +12,7 @@ set $ws2 "2:Social"
 set $ws3 "3:Dev"
 set $ws4 "4:Music"
 set $ws5 "5:Terminal"
+set $ws6 "6:Shortcuts"
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
@@ -31,7 +32,8 @@ bindsym $mod+Shift+q kill
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
-bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
+# bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
+bindsym $mod+d exec --no-startup-id rofi -show drun -run-command "i3-msg exec '{cmd}'" -show-icons -theme arthur
 
 # change focus
 bindsym $mod+j focus left
@@ -74,6 +76,7 @@ bindsym $mod+e layout toggle split
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
 
+
 # change focus between tiling / floating windows
 bindsym $mod+space focus mode_toggle
 
@@ -83,19 +86,23 @@ bindsym $mod+a focus parent
 # focus the child container
 #bindsym $mod+d focus child
 
+set $feh exec --no-startup-id feh --bg-scale
+
 # switch to workspace
 bindsym $mod+1 workspace $ws1
 bindsym $mod+2 workspace $ws2
 bindsym $mod+3 workspace $ws3
 bindsym $mod+4 workspace $ws4
-bindsym $mod+5 workspace 5
+bindsym $mod+5 workspace $ws5
+bindsym $mod+6 workspace $ws6 ; $feh ~/Pictures/i3-shortcuts.jpg
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace $ws1
 bindsym $mod+Shift+2 move container to workspace $ws2
 bindsym $mod+Shift+3 move container to workspace $ws3
 bindsym $mod+Shift+4 move container to workspace $ws4
-bindsym $mod+Shift+5 move container to workspace 5
+bindsym $mod+Shift+5 move container to workspace $ws5
+bindsym $mod+Shift+6 move container to workspace $ws6
 
 # Moving workspaces between screens
 bindsym $mod+p move workspace to output right
@@ -149,33 +156,28 @@ mode "$mode_system" {
  
 bindsym $mod+Pause mode "$mode_system"
 
-# Start i3bar to display a workspace bar (plus the system information i3status
+# Start bumblebee-status to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
         position top
-        status_command i3status
         font pango:DejaVu Sans Mono 14
-        separator_symbol "|"
-        binding_mode_indicator yes
-        colors {
-                background #222222
-                statusline #ffffff
-                separator #ffff00
-        }
+        tray_output primary
+        status_command bumblebee-status \
+        -m spotify datetime \
+        -p datetime.format="%a, %b %d %H:%M" \
+        -t iceberg-rainbow
 }
 
 bar {
         position bottom
-        status_command i3status -c ~/.config/i3status/config-time.conf | ~/.local/share/i3spotifystatus/pystatus.py
-        tray_output primary
+        tray_output none
         font pango:DejaVu Sans Mono 14
-        separator_symbol "|"
-        binding_mode_indicator yes
-        colors {
-                background #222222
-                statusline #ffffff
-                separator #ffff00
-        }
+        status_command bumblebee-status \
+        -m disk:root disk:var disk:home kernel shell \
+        -p disk.path=/ home.path=/home var.path=/var \
+        -p shell.command='lsb_release -ds' \
+        -p disk.format="{path} {percent:05.02f}% used" \
+        -t iceberg-rainbow
 }
 
 # client.focused          #4c7899 #285577 #ffffff #2e9ef4   #285577
