@@ -2,7 +2,8 @@
 	email = vampwillow@gmail.com
 	name = Andy Marks
 [push]
-	default = matching
+	default = current
+	autoSetupRemote = true
 [core]
 	autocrlf = input
 [filter "lfs"]
@@ -10,3 +11,7 @@
 	required = true
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
+[init]
+	defaultBranch = trunk
+[remote]
+	pushDefault = origin
