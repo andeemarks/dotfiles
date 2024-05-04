@@ -1,0 +1,10 @@
+# Media player controls
+bindsym XF86AudioPlay exec playerctl play
+bindsym XF86AudioPause exec playerctl pause
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous
+bindsym XF86AudioRaiseVolume exec amixer -q -c 0 set Master 2Db+
+bindsym XF86AudioLowerVolume exec amixer -q -c 0 set Master 2Db+
+bindsym XF86AudioMute exec amixer -q -c 0 set Master toggle
+bindsym $mod+F3 exec amixer -q -c 0 set Master 2Db+
+bindsym $mod+F2 exec amixer -q -c 0 set Master 2Db-

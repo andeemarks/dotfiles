@@ -1,3 +1,5 @@
+# Fig pre block. Keep at the top of this file.
+[[ -f "$HOME/.fig/shell/bashrc.pre.bash" ]] && builtin source "$HOME/.fig/shell/bashrc.pre.bash"
 # ~/.bashrc: executed by bash(1) for non-login shells.
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
@@ -97,7 +99,7 @@ export NVM_DIR="$HOME/.nvm"
 
 export GIT_EDITOR=vim
 
-neofetch --config ~/.config/neofetch/neofetch.config
+# neofetch --config ~/.config/neofetch/neofetch.config
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 export PATH=$PATH:~/.cargo/bin
@@ -117,16 +119,26 @@ function set_win_title(){
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/amarks/miniconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+__conda_setup="$('/home/amarks/anaconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
 if [ $? -eq 0 ]; then
     eval "$__conda_setup"
 else
-    if [ -f "/home/amarks/miniconda3/etc/profile.d/conda.sh" ]; then
-        . "/home/amarks/miniconda3/etc/profile.d/conda.sh"
+    if [ -f "/home/amarks/anaconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/amarks/anaconda3/etc/profile.d/conda.sh"
     else
-        export PATH="/home/amarks/miniconda3/bin:$PATH"
+        export PATH="/home/amarks/anaconda3/bin:$PATH"
     fi
 fi
 unset __conda_setup
 # <<< conda initialize <<<
 
+. "$HOME/.cargo/env"
+
+[ -f "/home/amarks/.ghcup/env" ] && source "/home/amarks/.ghcup/env" # ghcup-env
+
+# Fig post block. Keep at the bottom of this file.
+[[ -f "$HOME/.fig/shell/bashrc.post.bash" ]] && builtin source "$HOME/.fig/shell/bashrc.post.bash"
+
+
+# Load Angular CLI autocompletion.
+source <(ng completion script)

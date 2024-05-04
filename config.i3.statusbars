@@ -1,0 +1,22 @@
+bar {
+        position top
+        font pango:DejaVu Sans Mono 14
+        tray_output primary
+        status_command bumblebee-status \
+        -m spotify weather datetime \
+        -p datetime.format="%a, %b %d %H:%M" \
+        -p scrolling.width=60 \
+        -t night-powerline
+}
+
+bar {
+        position bottom
+        tray_output none
+        font pango:DejaVu Sans Mono 14
+        status_command bumblebee-status \
+        -m disk:root disk:var disk:home publicip kernel shell \
+        -p disk.path=/ home.path=/home var.path=/var \
+        -p shell.command='lsb_release -ds' \
+        -p disk.format="{path} {percent:05.02f}% used" \
+        -t iceberg-rainbow
+}
