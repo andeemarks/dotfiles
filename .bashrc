@@ -41,11 +41,6 @@ shopt -s checkwinsize
 # make less more friendly for non-text input files, see lesspipe(1)
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
-# set variable identifying the chroot you work in (used in the prompt below)
-if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
-    debian_chroot=$(cat /etc/debian_chroot)
-fi
-
 # If this is an xterm set the title to user@host:dir
 case "$TERM" in
 xterm*|rxvt*)
@@ -54,9 +49,6 @@ xterm*|rxvt*)
 *)
     ;;
 esac
-
-# colored GCC warnings and errors
-#export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
@@ -90,21 +82,10 @@ function lll ()
 
 source ~/.bash_powerline.sh
 
-# added by travis gem
-[ -f /home/amarks/.travis/travis.sh ] && source /home/amarks/.travis/travis.sh
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
 export GIT_EDITOR=vim
 
 # neofetch --config ~/.config/neofetch/neofetch.config
 
-export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
-export PATH=$PATH:/usr/local/blender-2.82a-linux64
-export PATH=$PATH:/snap/bin
-export PATH=$PATH:/home/linuxbrew/.linuxbrew/Cellar/jrnl/2.8.3_2/bin
 
 # tabtab source for slss package
 # uninstall by removing these lines or running `tabtab uninstall slss`
@@ -115,23 +96,6 @@ export PATH=$PATH:/home/linuxbrew/.linuxbrew/Cellar/jrnl/2.8.3_2/bin
 function set_win_title(){
     echo -ne "\033]0; $(basename $PWD) \007"
 }
-
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/amarks/anaconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/home/amarks/anaconda3/etc/profile.d/conda.sh" ]; then
-        . "/home/amarks/anaconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/home/amarks/anaconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
-
-[ -f "/home/amarks/.ghcup/env" ] && source "/home/amarks/.ghcup/env" # ghcup-env
 
 # Fig post block. Keep at the bottom of this file.
 [[ -f "$HOME/.fig/shell/bashrc.post.bash" ]] && builtin source "$HOME/.fig/shell/bashrc.post.bash"
