@@ -102,7 +102,6 @@ export GIT_EDITOR=vim
 # neofetch --config ~/.config/neofetch/neofetch.config
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
-export PATH=$PATH:~/.cargo/bin
 export PATH=$PATH:/usr/local/blender-2.82a-linux64
 export PATH=$PATH:/snap/bin
 export PATH=$PATH:/home/linuxbrew/.linuxbrew/Cellar/jrnl/2.8.3_2/bin
@@ -132,13 +131,8 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
-. "$HOME/.cargo/env"
-
 [ -f "/home/amarks/.ghcup/env" ] && source "/home/amarks/.ghcup/env" # ghcup-env
 
 # Fig post block. Keep at the bottom of this file.
 [[ -f "$HOME/.fig/shell/bashrc.post.bash" ]] && builtin source "$HOME/.fig/shell/bashrc.post.bash"
 
-
-# Load Angular CLI autocompletion.
-source <(ng completion script)
