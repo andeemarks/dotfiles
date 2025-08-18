@@ -100,3 +100,28 @@ function set_win_title(){
 # Fig post block. Keep at the bottom of this file.
 [[ -f "$HOME/.fig/shell/bashrc.post.bash" ]] && builtin source "$HOME/.fig/shell/bashrc.post.bash"
 
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/home/andy/anaconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/home/andy/anaconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/andy/anaconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/home/andy/anaconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
+
+[[ "$TERM_PROGRAM" == "kiro" ]] && . "$(kiro --locate-shell-integration-path bash)"
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/home/andy/.lmstudio/bin"
+# End of LM Studio CLI section
+
+export GEM_HOME=~/.ruby/
+export PATH="$PATH:~/.ruby/bin"

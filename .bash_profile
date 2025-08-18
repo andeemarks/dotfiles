@@ -11,3 +11,8 @@ eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
 # Fig post block. Keep at the bottom of this file.
 [[ -f "$HOME/.fig/shell/bash_profile.post.bash" ]] && builtin source "$HOME/.fig/shell/bash_profile.post.bash"
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/home/andy/.lmstudio/bin"
+# End of LM Studio CLI section
+

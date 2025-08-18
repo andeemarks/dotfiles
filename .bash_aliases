@@ -18,7 +18,7 @@ alias gitlg="git log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)
 alias gitcl="git clean -fdX"
 alias gitlgl="git log --stat --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --graph --abbrev-commit"
 alias gitpr="git pull --rebase --autostash"
-alias cat=bat
+alias cat=batcat
 alias sagi="sudo apt-get install -y"
 alias sagu="sudo apt-get update"
 
