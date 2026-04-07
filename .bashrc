@@ -125,3 +125,4 @@ export PATH="$PATH:/home/andy/.lmstudio/bin"
 
 export GEM_HOME=~/.ruby/
 export PATH="$PATH:~/.ruby/bin"
+export PATH="$HOME/.local/bin:$PATH"

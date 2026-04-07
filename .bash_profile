@@ -16,3 +16,4 @@ eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 export PATH="$PATH:/home/andy/.lmstudio/bin"
 # End of LM Studio CLI section
 
+export PATH=~/bin:$PATH
