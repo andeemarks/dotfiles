@@ -29,3 +29,8 @@ ln -sfv "$DOTFILES_DIR/config.i3" ~/.config/i3/config
 
 mkdir --parents ~/.config/i3status
 ln -sfv "$DOTFILES_DIR/config.i3status" ~/.config/i3status/config
+
+mkdir --parents ~/.claude/skills
+ln -sf "$DOTFILES_DIR/skills/"* ~/.claude/skills/
+
+
